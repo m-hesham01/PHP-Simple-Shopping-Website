@@ -1,0 +1,7 @@
+handle exceptions:
+- check null on special fields
+- duplicate exceptions (SKU)
+- try to remove switch case
+- make view-products homepage
+- clean up delete-script and DeleteObject
+- TEST
