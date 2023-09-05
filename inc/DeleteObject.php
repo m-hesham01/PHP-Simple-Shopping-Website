@@ -1,6 +1,6 @@
 <?php
 class DeleteObject{
-    private $servername = "localhost:3308";
+    private $servername = "mysql";
     private $username = "root";
     private $password = "root";
     private $dbname = "scandiweb";

@@ -27,7 +27,7 @@
             <div class="my-3 bg-light">
                 <form action="delete-script.php" method="post" id="list-form">
                     <?php
-                        include_once 'inc\GetObject.php';
+                        include_once 'inc/GetObject.php';
                         $select = new GetObject();
                         $result = $select->get_products();
                         $count = 0;

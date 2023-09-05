@@ -31,14 +31,14 @@
                 </div>
                 <div class="col">
                     <div class="text-end">
-                        <input type="submit" form="product-form" value="Save" class="btn btn-success">
+                        <input type="submit" form="product_form" value="Save" class="btn btn-success">
                         <a href="view-products.php" class="btn btn-danger">Cancel</a>
                     </div>
                 </div>
             </div>
             <div class="row my-3">
                 <div class="col-8">
-                    <form action="add-script.php" method="post" id="product-form">
+                    <form action="add-script.php" method="post" id="product_form">
                         <label for="sku" class="form-label">SKU</label>
                         <div class="input-group">
                             <input type="text" minlength="9" maxlength="9" class="form-control" id="sku" name="sku" required>
@@ -55,8 +55,8 @@
                         <label for="price" class="form-label">Price($)</label>
                         <input type="number" class="form-control" id="price" name="price" step=".01" required>
 
-                        <label for="product-type" class="form-label">Product Type</label>
-                        <select name="product-type" id="product-type" class="form-select" required>
+                        <label for="productType" class="form-label">Product Type</label>
+                        <select name="productType" id="productType" class="form-select" required>
                             <option value="" disabled selected hidden>Specify Product Type</option>
                             <option value="dvd">DVD</option>
                             <option value="furniture">Furniture</option>
@@ -121,19 +121,25 @@
                 </div>
             </div>
         </div>
-        <?php 
-        if(isset($_SESSION['Error'])) {
-            echo $_SESSION['Error'];
-            unset($_SESSION['Error']);
-        }
-        ?>
+        <p>
+            <?php
+            if (isset($_GET['missing_error'])) {
+                $missing_error = urldecode($_GET['missing_error']);
+                echo $missing_error;
+            }
+            if (isset($_GET['sku_error'])) {
+                $sku_error = urldecode($_GET['sku_error']);
+                echo $sku_error;
+            }
+            ?>
+        <p>
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <script>
         $(document).ready(function(){
-        $('#product-type').on('change', function(){
+        $('#productType').on('change', function(){
             var demovalue = $(this).val(); 
             $("div.optionDiv").hide();
             $("#show-"+demovalue).show();
